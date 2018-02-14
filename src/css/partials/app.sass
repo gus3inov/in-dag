@@ -1,0 +1,60 @@
+@import "./vars.sass"
+
+*
+  box-sizing: border-box
+  -webkit-transition: all 0.3s ease-in-out
+  -moz-transition: all 0.3s ease-in-out
+  -ms-transition: all 0.3s ease-in-out
+  -o-transition: all 0.3s ease-in-out
+  transition: all 0.3s ease-in-out
+  outline: 0 !important
+
+body
+  background-color: #E5E5E5
+  color: $white
+  font-family: $ptSansRegular
+  margin: 10px
+  position: relative
+  overflow-x: hidden
+  line-height: 1.6
+  margin: 0
+  padding: 0
+
+ul, li
+  margin: 0
+  padding: 0
+  list-style-type: none
+
+a
+  color: #000
+  text-decoration: none
+  outline: 0
+  transition: 0.32s
+  &:hover
+    text-decoration: none
+    color: #000
+
+h1, h2, h3, h4, h5, h6, p
+  margin: 0
+
+img
+  object-fit: cover
+  height: 100%
+
+button
+  background-color: transparent
+  border: none
+  cursor: pointer
+
+.button
+  padding: 5px 25px
+  border-radius: 4px
+  font-family: $ptSansRegular
+  font-size: 14px
+
+.button.orange
+  background-color: $orange
+  color: #fff
+
+.no-padding
+  padding: 0
