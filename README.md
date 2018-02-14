@@ -1,7 +1,7 @@
-# Life decorator 
+# InDagestan
 
 
-# Life decorator - личный блог.
+# InDagestan - 
 
 ### Tech
 
@@ -10,7 +10,6 @@
 Установите зависимости и devDependencies и запустите сервер.
 
 ```sh
-$ cd life-decorator
 $ npm install 
 $ bower install
 $ gulp
