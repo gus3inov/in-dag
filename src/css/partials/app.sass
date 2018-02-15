@@ -17,6 +17,8 @@ body
   line-height: 1.6
   margin: 0
   padding: 0
+  height: 100vh
+
 
 ul, li
   margin: 0
@@ -24,13 +26,39 @@ ul, li
   list-style-type: none
 
 a
-  color: #000
+  color: $white
   text-decoration: none
   outline: 0
   transition: 0.32s
   &:hover
     text-decoration: none
     color: #000
+
+.h_orange
+  &:hover
+    color: $orange
+
+div.arrow
+  width: 20px
+  height: 20px
+  i
+    width: 8px
+    height: 1.5px
+    background-color: $white
+    display: block
+    position: relative
+    &:nth-child(1)
+      top: 0
+      transform: rotate(50deg)
+    &:nth-child(2 )
+      transform: rotate(-50deg)
+      top: 4px
+
+.font-size__big
+  font-size: 22px
+  text-transform: uppercase
+  letter-spacing: 2px
+
 
 h1, h2, h3, h4, h5, h6, p
   margin: 0
@@ -66,7 +94,8 @@ button
   top: 0
 
 .header
-  margin-top: 20px
+  position: relative
+  top: 20px
   .logo
     width: 100%
     display: flex
@@ -82,9 +111,76 @@ button
   width: 100%
   .slick-list
     height: 100%
+  .slick-track
+    height: 100%
+    .slick-slide
+      height: 100%
+      div
+        height: 100%
+
   .bg-slide
     width: 100%
     height: 100%
     position: relative
     img
       width: 100%
+      height: 100%
+
+.wrapper-page
+  height: 100%
+  position: absolute
+  top: 0
+  width: 100%
+  .map
+    position: relative
+    display: flex
+    justify-content: center
+    img
+      width: 100%
+    &__nav
+      position: absolute
+      align-self: center
+      width: 100%
+      a
+        color: $white
+        position: relative
+        transition: 0.32s
+        &:before
+          content: ""
+          width: 100%
+          position: absolute
+          bottom: -3px
+          height: 2px
+          background-color: rgba(255, 255, 255, .2)
+          transition: 0.32s
+        &:hover
+          &:before
+            width: 0
+        &:nth-child(1)
+          top: -150px
+          left: 46%
+        &:nth-child(2)
+          left: 20%
+        &:nth-child(3)
+          left: 56%
+          bottom: -150px
+  .sidebar-menu
+    background-color: rgba(102, 72, 45, .2)
+    width: 336px
+    color: $white
+    padding: 40px 50px
+    border-radius: 5px
+    ul
+      li
+        margin: 20px 0
+        font-size: 18px
+        width: 100%
+        a
+          width: 100%
+          display: flex
+          align-items: center
+          justify-content: space-between
+          transition: 0.10s
+          &:hover
+            i
+              background-color: $orange

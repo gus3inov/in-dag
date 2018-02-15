@@ -1,12 +1,3 @@
-# InDagestan
-
-
-# InDagestan - 
-
-### Tech
-
-### Установка
-
 Установите зависимости и devDependencies и запустите сервер.
 
 ```sh

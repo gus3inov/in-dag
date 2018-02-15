@@ -1,5 +1,5 @@
 {
-  "name": "in-dagestan",
+  "name": "private-project",
   "version": "1.0.0",
   "description": "Application",
   "main": "index.js",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gus3inov/in-dagestan.git"
+    "url": "git+https://github.com/gus3inov/private-project.git"
   },
   "author": "Muslim Guseinov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gus3inov/in-dagestan/issues"
+    "url": "https://github.com/gus3inov/private-project/issues"
   },
-  "homepage": "https://github.com/gus3inov/in-dagestan#readme",
+  "homepage": "https://github.com/gus3inov/private-project#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

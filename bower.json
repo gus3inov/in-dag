@@ -1,12 +1,12 @@
 {
-  "name": "in-dagestan",
+  "name": "private-project",
   "description": "Blog for life",
   "main": "index.js",
   "authors": [
     "Muslim Guseinov"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/gus3inov/in-dagestan",
+  "homepage": "https://github.com/gus3inov/private-project",
   "private": true,
   "ignore": [
     "**/.*",

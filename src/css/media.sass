@@ -1,14 +1,47 @@
-@media screen and (max-width: 1680px)
+@media screen and (min-width: 1680px)
   .header
     width: 100%
+
+  .container
+    max-width: 2060px
 
 @media screen and (max-width: 1280px)
   .header
     width: 100%
 
+  .wrapper-page
+    .map__nav
+      a
+        font-size: 15px
+        &:nth-child(1)
+          top: -68px
+          left: 43%
+        &:nth-child(2)
+          left: 10%
+        &:nth-child(3)
+          left: 50%
+          bottom: -104px
+    .sidebar-menu
+      padding: 20px 30px
+      ul
+        li
+          margin: 15px 0
+
 @media screen and (max-width: 1024px)
   .header
     width: 100%
+
+  .wrapper-page
+    .map__nav
+      a
+        font-size: 15px
+        &:nth-child(2)
+          left: 8%
+        &:nth-child(3)
+          left: 41%
+          bottom: -86px
+    .sidebar-menu
+      width: 260px
 
 @media screen and (max-width: 768px)
   .header
