@@ -14,10 +14,13 @@ body
   color: $white
   font-family: $ptSansRegular
   overflow-x: hidden
-  line-height: 1.6
   margin: 0
   padding: 0
   height: 100vh
+  font-size: 14px
+  line-height: 1.6em
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
 
 
 ul, li
@@ -37,6 +40,18 @@ a
 .h_orange
   &:hover
     color: $orange
+
+.link-border
+  position: relative
+  transition: 0.32s
+  &:before
+    content: ""
+    width: 100%
+    position: absolute
+    bottom: -3px
+    height: 2px
+    background-color: rgba(255, 255, 255, .2)
+    transition: 0.32s
 
 div.arrow
   width: 20px
@@ -96,6 +111,7 @@ button
 .header
   position: relative
   top: 20px
+  z-index: 10
   .logo
     width: 100%
     display: flex
@@ -104,7 +120,7 @@ button
 
 
 .bg-slider
-  height: 100vh
+  height: 100%
   position: absolute
   top: 0
   z-index: -10
@@ -127,10 +143,10 @@ button
       height: 100%
 
 .wrapper-page
-  height: 100%
-  position: absolute
-  top: 0
-  width: 100%
+  height: 100vh
+  display: flex
+  flex-direction: column
+  justify-content: space-between
   .map
     position: relative
     display: flex
@@ -143,16 +159,6 @@ button
       width: 100%
       a
         color: $white
-        position: relative
-        transition: 0.32s
-        &:before
-          content: ""
-          width: 100%
-          position: absolute
-          bottom: -3px
-          height: 2px
-          background-color: rgba(255, 255, 255, .2)
-          transition: 0.32s
         &:hover
           &:before
             width: 0
@@ -184,3 +190,194 @@ button
           &:hover
             i
               background-color: $orange
+
+
+.gallery-sidebar
+
+  .tabs
+    z-index: 15px
+    position: relative
+    width: 457px
+    border-radius: 4px
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1)
+    box-sizing: border-box
+    margin: 72px auto 10px
+    overflow: hidden
+
+  .tabs-header
+    position: relative
+    background: #4285F4
+    overflow: hidden
+    .border
+      position: absolute
+      bottom: 0
+      left: 0
+      background: #F4B142
+      width: auto
+      height: 2px
+      transition: 0.3s ease
+      border: 1px solid $orange !important
+    ul
+      display: flex
+      flex-direction: row
+      flex-wrap: wrap
+      width: 100%
+      justify-content: space-between
+    li
+      transition: 0.3s ease
+      width: 50%
+      &.active
+        span
+          color: $orange
+        .count
+          color: rgba(242, 153, 74, .2)
+    a
+      z-index: 1
+      display: block
+      box-sizing: border-box
+      padding: 15px 20px
+      color: #FFFFFF
+      font-weight: 500
+      text-decoration: none
+      text-transform: uppercase
+      text-align: center
+      font-family: $ptSansBold
+      font-size: 20px
+      .count
+        font-family: $ptSansRegular
+        color: rgba(255, 255, 255, .2)
+        font-size: 17px
+        margin-left: 10px
+
+  .tabs-nav
+    position: absolute
+    top: 0
+    right: 0
+    background: #4285F4
+    display: flex
+    align-items: center
+    height: 100%
+    padding: 0 10px
+    color: #FFFFFF
+    user-select: none
+    &:before
+      content: ''
+      z-index: 1
+      position: absolute
+      top: 0
+      left: 0
+      height: 100%
+      box-shadow: 0 0 20px 10px #4285F4
+    i
+      border-radius: 100%
+      cursor: pointer
+
+  .tabs-content
+    position: relative
+    padding: 15px 20px
+    transition: 0.3s ease
+    overflow: hidden
+    background: $dark
+    color: $white
+    max-height: 500px
+    overflow-y: scroll
+    .tab
+      display: none
+      &.active
+        display: block
+
+  .pen-footer
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    width: 600px
+    margin: 20px auto 100px
+    a
+      color: #FFFFFF
+      font-size: 12px
+      text-decoration: none
+      text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.1)
+      .material-icons
+        width: 12px
+        margin: 0 5px
+        vertical-align: middle
+        font-size: 12px
+
+  .cp-fab
+    background: #FFFFFF !important
+    color: #4285F4 !important
+
+
+.gallery-photo__nav
+  .slick-list
+    padding: 0 !important
+    .slick-slide
+      margin: 20px 5px
+      width: 125px !important
+      height: 125px
+      cursor: pointer
+      div
+        height: 100%
+        img
+          width: 100%
+          height: 100%
+          object-fit: cover
+          transition: 0.32s
+    .slick-current
+      border: 3px solid $orange
+      overflow: hidden
+      img
+        transform: scale(1.3)
+  .slick-track
+    width: 100% !important
+    transform: unset !important
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+
+.gallery-display
+  &__slider
+    height: 100%
+    .wrapp-slick__button.next
+      right: 20px
+      button
+        background-position: 69px 28px
+    .wrapp-slick__button.prev
+      left: 20px
+    .slider-item
+      position: relative
+      img
+        width: 100%
+
+      &__description
+        position: absolute
+        top: 35px
+        left: 40px
+        background-color: rgba(0,0,0, .2)
+        padding: 20px
+        h5
+          font-size: 18px
+  &__title
+    margin-bottom: 40px
+
+
+.slick-arrow
+  position: absolute
+  z-index: 1000
+  bottom: 50%
+  outline: 0
+  button
+    height: 27px
+    width: 10px
+    background-size: 56px 28px
+    background-image: url("../../img/arrow-slider.svg")
+
+
+.wrapp-slick__button
+  padding: 10px 20px
+  transition: 0.2s
+  display: flex
+  align-items: center
+  cursor: pointer
+  &:hover
+    background-color: rgba(255, 255, 255, .2)
