@@ -54,12 +54,12 @@ $(document).ready(function () {
         });
     }
 
-    // Tabs
+
     $('.tabs-header a').on('click', function (e) {
         e.preventDefault();
 
         // Tab Id
-        var tabId = $(this).attr('tab-id');
+        let tabId = $(this).attr('tab-id');
 
         // Remove Active State
         $('.tabs-header a').stop().parent().removeClass('active');
@@ -78,8 +78,21 @@ $(document).ready(function () {
             $(this).removeClass('active');
         }).hide();
 
+        $('.display').stop().fadeOut(300, function () {
+            // Remove Classs
+            $(this).removeClass('active');
+        }).hide();
+
         // Add Active State
         $('.tab[tab-id="' + tabId + '"]').stop().fadeIn(300, function () {
+            // Add Class
+            $(this).addClass('active');
+
+            // Animate Height
+            animateTabHeight();
+        });
+
+        $('.display[tab-id="' + tabId + '"]').stop().fadeIn(300, function () {
             // Add Class
             $(this).addClass('active');
 

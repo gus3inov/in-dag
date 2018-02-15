@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
-    const galleryDisplay = $('.gallery-display .gallery-display__slider')
-    const galleryNav = $('.gallery-photo__nav')
+    const galleryPhotoDisplay = $('.gallery-display .gallery-display__slider')
+    const galleryPhotoNav = $('.gallery-photo__nav')
 
-        galleryDisplay.slick({
+    galleryPhotoDisplay.slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: true,
@@ -13,7 +13,7 @@ $(document).ready(function () {
             nextArrow: '<div class="wrapp-slick__button next"><button type="button" class="slick-next"></button></div>'
         });
 
-        galleryNav.slick({
+    galleryPhotoNav.slick({
             slidesToShow: 3,
             slidesToScroll: 1,
             arrows: false,
