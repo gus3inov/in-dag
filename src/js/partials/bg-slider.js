@@ -5,9 +5,10 @@ $(document).ready(function(){
         autoplay: true,
         arrows: false,
         draggable: false,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 5000,
         pauseOnFocus: false,
-        pauseOnHover: false
+        pauseOnHover: false,
+        infinite: true
     })
 
 });
