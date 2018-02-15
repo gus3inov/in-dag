@@ -1,17 +1,13 @@
 $(document).ready(function(){
-    const owl = $('.bg-slider');
-    owl.owlCarousel({
-        items: 1,
+    const bg_slider = $('.bg-slider');
+
+    bg_slider.slick({
         autoplay: true,
-        autoplayTimeout: 1000,
-        autoplayHoverPause: false,
-        mouseDrag: false,
-        touchDrag: false,
-        loop: true,
-        autoplaySpeed: 5000
-    });
+        arrows: false,
+        draggable: false,
+        autoplaySpeed: 2000,
+        pauseOnFocus: false,
+        pauseOnHover: false
+    })
 
-    owl.trigger('play.owl.autoplay',[1000])
-
-    window.owl = owl
 });
