@@ -14,6 +14,7 @@ body
   color: $white
   font-family: $ptSansRegular
   overflow-x: hidden
+  overflow-x: hidden
   margin: 0
   padding: 0
   height: 100vh
@@ -117,7 +118,13 @@ button
     display: flex
     justify-content: center
 
-
+.bg-image
+  height: 100%
+  position: absolute
+  top: 0
+  z-index: -10
+  width: 100%
+  background-image: url('../../img/bg/bg-4.jpg')
 
 .bg-slider
   height: 100%
@@ -194,6 +201,15 @@ button
 
 .gallery-sidebar
   display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  &__map
+    height: 178px
+    width: 100%
+    margin-top: 30px
+    border: 4px solid $orange
+    width: 457px
   .tabs
     z-index: 15px
     position: relative
@@ -279,7 +295,7 @@ button
     overflow: hidden
     background: $dark
     color: $white
-    max-height: 500px
+    height: 417px !important
     overflow-y: scroll
     .tab
       display: none
