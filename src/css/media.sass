@@ -9,6 +9,17 @@
   .header
     width: 100%
 
+  .gallery-sidebar
+    .tabs-content
+      height: 326px !important
+
+  .gallery-display
+    &__slider
+      .slider-item
+        .slider-item__img
+          height: 600px
+        iframe
+          height: 600px
   .wrapper-page
     .map__nav
       a
@@ -27,6 +38,15 @@
         li
           margin: 15px 0
 
+  .gallery-sidebar
+    .tabs
+      width: 317px
+
+  .gallery-sidebar__map
+    width: 317px
+  .container
+    max-width: 1860px
+
 @media screen and (max-width: 1024px)
   .header
     width: 100%
@@ -42,11 +62,22 @@
           bottom: -86px
     .sidebar-menu
       width: 260px
+  .container
+    width: 1860px
 
 @media screen and (max-width: 768px)
   .header
     width: 100%
 
+  .container
+    width: 1860px
+
+  .row
+    display: flex
+
 @media screen and (max-width: 480px)
   .header
     width: 100%
+
+  .container
+    width: 1860px
