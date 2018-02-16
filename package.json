@@ -33,6 +33,7 @@
     "gulp-babel": "^7.0.0",
     "gulp-browserify": "^0.5.1",
     "gulp-clean-css": "^3.9.0",
+    "gulp-copy": "^1.1.0",
     "gulp-imagemin": "^3.4.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rigger": "^0.5.8",
