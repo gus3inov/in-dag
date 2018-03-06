@@ -20,6 +20,7 @@
     "jquery": "^3.2.1",
     "gsap": "^1.20.3",
     "slick-carousel": "^1.8.1",
-    "fancybox": "^3.2.5"
+    "fancybox": "^3.2.5",
+    "tether-select": "^1.1.1"
   }
 }

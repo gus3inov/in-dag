@@ -50,7 +50,13 @@ let config = {
     },
     //tunnel: true,
     host: 'localhost',
-    port: 3030,
+    port: 3039,
+    ui: {
+        port: 8080,
+        weinre: {
+            port: 9090
+        }
+    },
     logPrefix: "in-dagestan"
 };
 
