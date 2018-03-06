@@ -1,0 +1,30 @@
+@import "./vars.sass"
+
+.btn
+  color: $white
+  font-size: 16px
+  &.btn_orange
+    background: $orange
+
+.i
+  display: block
+  i
+    display: block
+
+.i_arrow
+  position: relative
+  i
+    background: #fff
+    position: absolute
+    width: 16px
+    height: 2px
+    &:nth-child(2)
+      transform: rotate(40deg)
+      top: -2px
+      right: -17px
+      width: 8px
+    &:nth-child(3)
+      transform: rotate(-40deg)
+      width: 8px
+      right: -17px
+      top: 2px

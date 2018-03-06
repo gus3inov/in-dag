@@ -47,6 +47,7 @@ $(document).ready(function () {
     });
 
     $("[data-fancybox]").fancybox({
+        loop: true,
         slideShow : {
             autoStart : true,
             speed     : 3000
