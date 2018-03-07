@@ -2,9 +2,9 @@
 //= ./partials/Scroll.js
 //= ./partials/Tabs.js
 //= ./partials/filters.js
-//= ./partials/bg-slider.js
 //= ./partials/gallery.js
 //= ./partials/categories.js
+//= ./partials/bg-slider.js
 
 let sidebarMenu = $('.sidebar-menu')
 $('button[data-open="sidebar"]').on('click', function () {
