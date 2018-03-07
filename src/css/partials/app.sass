@@ -256,6 +256,17 @@ button
   -webkit-background-size: cover
   background-size: cover
   background-image: url('../img/bg/bg-4.jpg')
+.bg-video
+  height: 100%
+  position: absolute
+  top: 0
+  z-index: -10
+  width: 100%
+  video
+    width: 100%
+    position: absolute
+    height: 100%
+    object-fit: cover
 
 .bg-slider
   height: 100%
@@ -295,8 +306,16 @@ button
       position: absolute
       align-self: center
       width: 100%
-      a
+      button
+        &.disable
+          color: $grey
+          &:before
+            background-color: $grey
+          &:hover
+            &:before
+              width: 100%
         color: $white
+        padding: 0
         &:hover
           &:before
             width: 0
@@ -314,6 +333,15 @@ button
     color: $white
     padding: 40px 50px
     border-radius: 5px
+    position: relative
+    top: -50px
+    opacity: 0
+    display: none
+    &.visible
+      display: block
+    &.visually_visible
+      opacity: 1
+      top: 0
     ul
       li
         margin: 20px 0
@@ -349,7 +377,7 @@ button
         width: 100% !important
         height: 100% !important
         position: absolute !important
-        background: rgba(0,0,0,.2) !important
+        background: rgba(0,0,0,.4) !important
         z-index: 100 !important
       .gmnoprint
         z-index: 1000 !important
@@ -596,6 +624,7 @@ button
     justify-content: flex-end
 
 .categories
+  &-slide
   .btn.open_categories
     margin: 0 auto
     border-radius: 20px
@@ -614,6 +643,7 @@ button
       border-radius: 50%
       height: 60px
       width: 60px
+      margin: 0 30px
       .visible-text
         display: none
       .i_arrow
@@ -634,8 +664,9 @@ button
     display: flex
     flex-wrap: wrap
     justify-content: center
-    position: absolute
-    top: 120px
+    padding: 0 30px
+    align-items: center
+
     &__item
       padding: 20px
       background-color: rgba(255,255,255,.2)
@@ -647,6 +678,9 @@ button
       font-weight: bold
       position: relative
       z-index: -10
+      &:hover
+        background-color: rgba(255,255,255,.3)
+        color: $orange
       h5
         font-size: 25px
       &.visible
@@ -656,6 +690,3 @@ button
     .categories-filter
       top: 20%
       opacity: 1
-      &:hover
-        background-color: rgba(255,255,255,.3)
-        color: $orange

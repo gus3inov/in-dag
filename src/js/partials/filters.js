@@ -1,13 +1,24 @@
 $(document).ready(function(){
-    const filters = document.querySelectorAll('.filter-select')
+    const filters = document.querySelectorAll('.filter-select');
+    let openFilterBtn = $('.open-filter'),
+        categoriesFilterWrapp = $('.categories-filter-wrapper');
 
-    $('.open-filter').on('click', function () {
-        $('.categories-filter-wrapper').toggleClass('visible')
-        $('button.open-filter').toggleClass('active')
+    openFilterBtn.on('click', function () {
+        openFilterBtn.toggleClass('active')
+        console.log(categoriesFilterWrapp)
+        if(categoriesFilterWrapp.hasClass('visible')){
+            categoriesFilterWrapp.toggleClass('visually_visible')
 
-        setTimeout(function () {
-            $('.categories-filter-wrapper').toggleClass('visually_visible')
-        }, 100)
+            setTimeout(function () {
+                categoriesFilterWrapp.toggleClass('visible')
+            }, 200)
+        }else {
+            categoriesFilterWrapp.toggleClass('visible')
+
+            setTimeout(function () {
+                categoriesFilterWrapp.toggleClass('visually_visible')
+            }, 100)
+        }
     })
     
     filters.forEach(filter => {
