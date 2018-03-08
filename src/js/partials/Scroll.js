@@ -10,24 +10,27 @@ class Scroll {
         this.getWidth()
     }
 
-    scrollDoc(e) {
+    handleScroll(e) {
         if (!e) e = event
 
         e.preventDefault ? e.preventDefault() : e.returnValue = false
-        this._offsetScroll++;
 
         let _delta = e.wheelDelta || -e.detail
-        _delta /= Math.abs(_delta)
+            _delta /= Math.abs(_delta)
 
         this._offsetScroll += (_delta * this._wDelta)
 
-        for(let i = 0; i < this._items.length; i++){
-           let item = this._items[i];
+        this.animateSlide(this._offsetScroll, 20)
+    }
 
-           item.style.position = 'relative'
+    animateSlide(move, duration){
+        for(let i = 0; i < this._items.length; i++){
+            let item = this._items[i];
+
+            item.style.position = 'relative'
             setTimeout(() => {
-                item.style.transform = `translateX(${this._offsetScroll}px)`
-            }, 30 * i)
+                item.style.transform = `translateX(${move}px)`
+            }, duration * i)
         }
     }
 
@@ -37,17 +40,16 @@ class Scroll {
 
     listenEvents(){
         if(this._body.attachEvent){
-            this._body.attachEvent('onmousewheel', this.scrollDoc.bind(this))
+            this._body.attachEvent('onmousewheel', this.handleScroll.bind(this))
         }else{
-            this._body.addEventListener('DOMMouseWheel', this.scrollDoc.bind(this), false)
-            this._body.addEventListener('mousewheel', this.scrollDoc.bind(this), false)
+            this._body.addEventListener('DOMMouseWheel', this.handleScroll.bind(this), false)
+            this._body.addEventListener('mousewheel', this.handleScroll.bind(this), false)
         }
     }
 }
 
 let listScroll_1 = document.querySelector('.categories-scroll_1'),
     listScroll_2 = document.querySelector('.categories-scroll_2')
-
 
 if(listScroll_1 || listScroll_2){
     const scroll = new Scroll({
