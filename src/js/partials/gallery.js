@@ -7,6 +7,7 @@ $(document).ready(function () {
 
 
     galleryPhotoDisplay.slick({
+            lazyLoad: 'ondemand',
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: true,
@@ -17,6 +18,7 @@ $(document).ready(function () {
         });
 
     galleryPhotoNav.slick({
+            lazyLoad: 'ondemand',
             slidesToShow: 3,
             slidesToScroll: 1,
             arrows: false,
@@ -28,6 +30,7 @@ $(document).ready(function () {
         });
 
     galleryVideoDisplay.slick({
+        lazyLoad: 'ondemand',
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
@@ -36,6 +39,7 @@ $(document).ready(function () {
     });
 
     galleryVideoNav.slick({
+        lazyLoad: 'ondemand',
         slidesToShow: 3,
         slidesToScroll: 1,
         arrows: false,
