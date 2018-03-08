@@ -5,7 +5,7 @@ let gulp        = require('gulp'),
     babel		= require('gulp-babel'),
     imagemin    = require('gulp-imagemin'),
     pngquant    = require('imagemin-pngquant'),
-    cleanCSS    = require('gulp-clean-css')
+    cleanCSS    = require('gulp-clean-css'),
     browserSync = require('browser-sync'),
     rigger      = require('gulp-rigger'),
     sourcemaps  = require('gulp-sourcemaps'),
@@ -14,6 +14,7 @@ let gulp        = require('gulp'),
     plumber     = require('gulp-plumber'),
     gutil       = require('gulp-util'),
     gulpCopy    = require('gulp-copy'),
+    rollup      = require('gulp-better-rollup'),
     reload      = browserSync.reload;
 
 let path = {
@@ -52,7 +53,7 @@ let config = {
     host: 'localhost',
     port: 3039,
     ui: {
-        port: 8080,
+        port: 8082,
         weinre: {
             port: 9090
         }
