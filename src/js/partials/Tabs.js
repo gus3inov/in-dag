@@ -96,8 +96,4 @@ class Tabs {
 
 window.Tabs = Tabs;
 
-    const filterTab = new Tabs({
-        baseDom: '.categories-filter'
-    })
-
 })

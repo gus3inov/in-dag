@@ -1,7 +1,8 @@
 $(document).ready(function(){
-    const filters = document.querySelectorAll('.filter-select');
+    const filters = document.querySelectorAll('.filter-select')
+    let dataFilter = []
     let openFilterBtn = $('.open-filter'),
-        categoriesFilterWrapp = $('.categories-filter-wrapper');
+        categoriesFilterWrapp = $('.categories-filter-wrapper')
 
     openFilterBtn.on('click', function () {
         openFilterBtn.toggleClass('active')
@@ -28,10 +29,37 @@ $(document).ready(function(){
             className: 'select-theme-dark'
         }).on('change', function (val) {
             let currentTarget = filter.nextSibling
-
+            dataFilter.push(val.value)
+            console.log(dataFilter)
             currentTarget.classList.add('option_picked')
         })
 
     })
 
-});
+    $('.option_picked b').on('click', function(){
+        console.log('click')
+        $(this).parent('a').removeClass('option_picked')
+    })
+
+
+    let activeFilter = $('.categories-filter .tabs-header .active'),
+        activeFilterPos = activeFilter.position()
+    $('.categories-filter .tabs-header a').on('click', function () {
+        activeFilter.removeClass('active')
+        $(this).parent('li').addClass('active')
+        activeFilter = $('.categories-filter .tabs-header .active')
+        activeFilterPos = activeFilter.position()
+
+        $('.categories-filter .border').stop().css({
+            left: activeFilterPos.left,
+            width: activeFilter.width()
+        })
+    })
+
+    $('.filter-footer button[type="submit"]').on('click', function(){
+        let activeType = $('.categories-filter .tabs-header .active a').attr('data-type')
+
+
+    })
+
+})
