@@ -1,9 +1,9 @@
-class Scroll {
-    constructor({ slideWrapper, itemsScroll }) {
+class HorizontalScroll {
+    constructor({ slideWrapper, itemsScroll, scrollBody = document.documentElement }) {
         this._wrapper = typeof slideWrapper !== 'string' ? slideWrapper : document.querySelector(slideWrapper)
         this._items = document.querySelectorAll(itemsScroll) || this._wrapper.children
         this._offsetScroll = 0
-        this._body = document.documentElement;
+        this._body = typeof scrollBody !== 'string' ? scrollBody : document.querySelector(scrollBody);
         this._wDelta = 10
 
         this.listenEvents()
@@ -51,17 +51,24 @@ class Scroll {
 let listScroll_1 = document.querySelector('.categories-scroll_1'),
     listScroll_2 = document.querySelector('.categories-scroll_2')
 
-if(listScroll_1 || listScroll_2){
-    const scroll = new Scroll({
-        slideWrapper: listScroll_1,
-        itemsScroll: '.categories-scroll_1 .categories-list__item'
-    })
+const initHS = () => {
+    if(listScroll_1 || listScroll_2){
 
-    const scroll2 = new Scroll({
-        slideWrapper: listScroll_2,
-        itemsScroll: '.categories-scroll_2 .categories-list__item'
-    })
+        const scroll = new HorizontalScroll({
+            slideWrapper: listScroll_1,
+            itemsScroll: '.categories-scroll_1 .categories-list__item',
+            scrollBody: '.categories'
+        })
 
-}else{
-    console.log('lol')
+        const scroll2 = new HorizontalScroll({
+            slideWrapper: listScroll_2,
+            itemsScroll: '.categories-scroll_2 .categories-list__item',
+            scrollBody: '.categories'
+        })
+
+    }else{
+        return false
+    }
 }
+
+initHS()

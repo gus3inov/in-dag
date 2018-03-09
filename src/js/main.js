@@ -1,5 +1,5 @@
 
-//= ./partials/Scroll.js
+//= ./partials/HorizontalScroll.js
 //= ./partials/Tabs.js
 //= ./partials/filters.js
 //= ./partials/gallery.js

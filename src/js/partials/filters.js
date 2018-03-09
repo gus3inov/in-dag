@@ -2,7 +2,8 @@ $(document).ready(function(){
     const filters = document.querySelectorAll('.filter-select')
     let dataFilter = []
     let openFilterBtn = $('.open-filter'),
-        categoriesFilterWrapp = $('.categories-filter-wrapper')
+        categoriesFilterWrapp = $('.categories-filter-wrapper'),
+        instanceFilter = []
 
     openFilterBtn.on('click', function () {
         openFilterBtn.toggleClass('active')
@@ -34,9 +35,10 @@ $(document).ready(function(){
             currentTarget.classList.add('option_picked')
         })
 
+        instanceFilter.push(Select)
     })
 
-    $('.option_picked b').on('click', function(){
+    $('.select-target.option_picked').on('click', function(){
         console.log('click')
         $(this).parent('a').removeClass('option_picked')
     })
@@ -56,10 +58,28 @@ $(document).ready(function(){
         })
     })
 
+    $('.filter-footer button[type="reset"]').on('click', function() {
+        instanceFilter.forEach(function (instance) {
+            console.log(instance.prototype.resetSelection)
+        })
+    })
+
     $('.filter-footer button[type="submit"]').on('click', function(){
         let activeType = $('.categories-filter .tabs-header .active a').attr('data-type')
 
+        let promise = new Promise(function (resolve) {
+            fetch('', {
+                method: 'POST',
+                body: {
+                    method: activeType,
+                    data: dataFilter
+                }
+            }).then(res => {
+                resolve(res)
+            })
+        })
 
+        return promise
     })
 
 })
