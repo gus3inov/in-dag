@@ -8,6 +8,7 @@ $(document).ready(function(){
             autoplaySpeed: 5000,
             pauseOnFocus: false,
             pauseOnHover: false,
-            infinite: true
+            infinite: true,
+            fade: true
         })
 });

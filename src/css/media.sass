@@ -1,13 +1,13 @@
-@media screen and (min-width: 1680px)
+@media screen and (max-width: 1680px)
   .header
     width: 100%
-
-  .container
-    max-width: 1860px
 
 @media screen and (max-width: 1280px)
   .header
     width: 100%
+
+  .container
+    max-width: 1210px
 
   .gallery-sidebar
     .tabs-content
@@ -22,21 +22,35 @@
           height: 600px
   .wrapper-page
     .map__nav
-      a
+      button
         font-size: 15px
         &:nth-child(1)
           top: -68px
-          left: 43%
+          left: 45%
         &:nth-child(2)
           left: 10%
+          top: 10px
         &:nth-child(3)
-          left: 50%
+          left: 44%
           bottom: -104px
     .sidebar-menu
-      padding: 20px 30px
+      padding: 10px 30px
+      width: 100%
       ul
         li
           margin: 15px 0
+          a
+            font-size: 13px
+
+  .categories
+    margin-top: 30px
+    .categories-list
+      max-height: 300px
+      padding: 0
+    .categories-list__item
+      padding: 15px
+      h5
+        font-size: 20px
 
   .gallery-sidebar
     .tabs
@@ -44,16 +58,17 @@
 
   .gallery-sidebar__map
     width: 317px
-  .container
-    max-width: 1860px
 
 @media screen and (max-width: 1024px)
   .header
     width: 100%
 
+  .gallery
+    margin-bottom: 100px
+
   .wrapper-page
     .map__nav
-      a
+      button
         font-size: 15px
         &:nth-child(2)
           left: 8%
@@ -62,8 +77,11 @@
           bottom: -86px
     .sidebar-menu
       width: 260px
-  .container
-    width: 1860px
+      ul
+        li
+          margin: 5px 0
+          a
+            font-size: 13px
 
 @media screen and (max-width: 768px)
   .header

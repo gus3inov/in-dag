@@ -5,6 +5,7 @@
 //= ./partials/gallery.js
 //= ./partials/categories.js
 //= ./partials/bg-slider.js
+//= ./partials/Modal.js
 
 let sidebarMenu = $('.sidebar-menu')
 $('button[data-open="sidebar"]').on('click', function () {

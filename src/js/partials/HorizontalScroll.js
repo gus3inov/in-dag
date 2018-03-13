@@ -5,6 +5,7 @@ class HorizontalScroll {
         this._offsetScroll = 0
         this._body = typeof scrollBody !== 'string' ? scrollBody : document.querySelector(scrollBody);
         this._wDelta = 10
+        this._widthScroll = 0
 
         this.listenEvents()
         this.getWidth()
@@ -24,18 +25,41 @@ class HorizontalScroll {
     }
 
     animateSlide(move, duration){
+        let axis = Math.sign(move),
+            distanation = Math.abs(move) >= this._widthScroll ? this._widthScroll :  Math.abs(move)
+
         for(let i = 0; i < this._items.length; i++){
             let item = this._items[i];
 
             item.style.position = 'relative'
-            setTimeout(() => {
-                item.style.transform = `translateX(${move}px)`
-            }, duration * i)
+
+            if(axis === 1)
+                setTimeout(() => {
+                    item.style.transform = `translateX(${distanation}px)`
+                }, duration * i)
+            else if(axis === -1)
+                setTimeout(() => {
+                    item.style.transform = `translateX(-${distanation}px)`
+                }, duration * i)
         }
     }
 
     getWidth(){
+        let children = this._wrapper.children,
+            isCollection = children.constructor.name === 'HTMLCollection'
 
+        if(Array.isArray(children) || isCollection) {
+            for(let i = 0; i < children.length; i++){
+                this._widthScroll += children[i].offsetWidth / 2
+            }
+        }
+        else {
+            let widthChildren = children.offsetWidth
+
+            this._widthScroll += widthChildren / 2
+        }
+
+        console.log(this._widthScroll)
     }
 
     listenEvents(){

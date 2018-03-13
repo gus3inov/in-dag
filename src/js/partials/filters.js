@@ -22,17 +22,35 @@ $(document).ready(function(){
             }, 100)
         }
     })
-    
+
     filters.forEach(filter => {
         new Select({
             el: filter,
             selector: '.categories-filter',
             className: 'select-theme-dark'
         }).on('change', function (val) {
+            let allOptions = $('.select-options .select-option')
             let currentTarget = filter.nextSibling
             dataFilter.push(val.value)
-            console.log(dataFilter)
             currentTarget.classList.add('option_picked')
+
+           let selectOptions = filter.children
+
+            for(let i = 0; i < selectOptions.length; i++){
+                let attrDepend = selectOptions[i].getAttribute('data-depend'),
+                    attrValue = selectOptions[i].value
+
+                if(attrDepend !== null){
+                    if(val.value === attrValue){
+                        let filterOption = $(`.filter-select option[data-depend-for="${attrDepend}"]`).attr('value')
+                        allOptions.filter(function (index) {
+                             if($(this).attr('data-value') === filterOption){
+                                 $(this).addClass('select-option-selected')
+                             }
+                        })
+                    }
+                }
+            }
         })
 
         instanceFilter.push(Select)

@@ -39,6 +39,9 @@ a
     text-decoration: none
     color: #fff
 
+.container
+  max-width: 1860px
+
 .h_orange
   &:hover
     color: $orange
@@ -49,6 +52,8 @@ a
 .link-border
   position: relative
   transition: 0.32s
+  padding: 0
+  color: $white
   &:before
     content: ""
     width: 100%
@@ -58,9 +63,14 @@ a
     background-color: rgba(255, 255, 255, .2)
     transition: 0.32s
 
+.orange
+  color: $orange
+
 div.arrow
   width: 20px
   height: 20px
+  position: relative
+  top: 6px
   i
     width: 8px
     height: 1.5px
@@ -206,7 +216,7 @@ button
   .search
     button
       position: relative
-      z-index: 1000
+      z-index: 500
       .i_circle
         width: 20px
         height: 20px
@@ -256,6 +266,13 @@ button
   -webkit-background-size: cover
   background-size: cover
   background-image: url('../img/bg/bg-4.jpg')
+.bg-black
+  background-color: #000
+  height: 100%
+  position: absolute
+  top: 0
+  z-index: -10
+  width: 100%
 .bg-video
   height: 100%
   position: absolute
@@ -325,7 +342,7 @@ button
         &:nth-child(2)
           left: 20%
         &:nth-child(3)
-          left: 56%
+          left: 50%
           bottom: -150px
   .sidebar-menu
     background-color: rgba(102, 72, 45, .2)
@@ -373,12 +390,13 @@ button
     .google-map
       width: 100%
       height: 100%
-      iframe
-        width: 100% !important
-        height: 100% !important
-        position: absolute !important
-        background: rgba(0,0,0,.4) !important
-        z-index: 100 !important
+      .gm-style
+        div[style='position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url("https://maps.gstatic.com/mapfiles/openhand_8_8.cur"), default; touch-action: pan-x pan-y;'] + iframe
+          width: 100% !important
+          height: 100% !important
+          position: absolute !important
+          background: rgba(0,0,0,.4) !important
+          z-index: 100 !important
       .gmnoprint
         z-index: 1000 !important
       button
@@ -505,16 +523,26 @@ button
       width: 125px !important
       height: 125px
       cursor: pointer
+      overflow: hidden
       div
         height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
         img
           width: 100%
           height: 100%
           object-fit: cover
           transition: 0.32s
+        img.slick-loading
+          background-color: transparent
+          border: 1px solid $orange
+          width: 50px !important
+          height: 50px
+          border-radius: 100%
+          animation: loaderRotate 2s linear infinite
     .slick-current
       border: 3px solid $orange
-      overflow: hidden
       img
         transform: scale(1.3)
   .slick-track
@@ -569,6 +597,13 @@ button
       &.photo
         display: flex !important
         justify-content: center
+        .photo-id
+          position: absolute
+          right: 10px
+          top: 10px
+          color: $orange
+          padding: 10px
+          background: rgba(0,0,0,.1)
       &__zoom
         position: absolute
         bottom: 35px
@@ -579,8 +614,8 @@ button
         &:hover
           transform: rotate(20deg) scale(1.1)
   &__title
-    margin-bottom: 40px
-    font-size: 35px
+    margin-bottom: 15px
+    font-size: 31px
 
 .dark-bg
   background: rgba(0,0,0,.2)
@@ -624,6 +659,7 @@ button
     justify-content: flex-end
 
 .categories
+  margin-top: 30px
   .categories-scroll
     display: flex
     overflow: hidden
@@ -634,6 +670,7 @@ button
     border-radius: 20px
     border: 2px solid $white
     background: rgba(255,255,255,.1)
+    color: $white
     display: flex
     height: 40px
     align-items: center
@@ -671,10 +708,10 @@ button
     padding: 0 30px
     align-items: center
     max-height: 270px
-    min-width: 80%
+    min-width: 100%
     &__item
       padding: 20px
-      background-color: rgba(255,255,255,.2)
+      background-color: rgba(255,255,255,.1)
       color: $white
       border-radius: 5px
       margin: 10px
@@ -687,7 +724,9 @@ button
         background-color: rgba(255,255,255,.3)
         color: $orange
       h5
-        font-size: 25px
+        font-size: 22px
+        font-weight: 100
+        letter-spacing: 0.80px
       &.visible
         z-index: 10
       &.visually_visible
@@ -701,3 +740,35 @@ button
 
 .slick-slide.slick-loading img, .slick-arrow.slick-hidden
   display: none
+
+.modal-wrapper
+  justify-content: center
+
+.modal-about
+  background-color: rgba(255,255,255,.1)
+  padding: 20px 50px
+  border-radius: 5px
+  color: $white
+  min-width: 600px
+  max-width: 900px
+  &__header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    .title
+      color: $orange
+      border-bottom: 2px solid $orange
+  .modal-about_close
+    font-size: 40px
+    color: $white
+    font-weight: 300
+  &__content
+    margin-top: 20px
+    p
+      white-space: pre-line
+      line-height: 26px
+      font-size: 17px
+
+@keyframes loaderRotate
+  to
+    transform: rotate(360deg)
