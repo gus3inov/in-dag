@@ -24,6 +24,13 @@ body
   -moz-osx-font-smoothing: grayscale
   position: relative
 
+  &::-webkit-scrollbar
+    width: 0.4em
+    height: 0.5em
+  &::-webkit-scrollbar-thumb
+    background: $orange
+    border-radius: 40px
+  &::-webkit-scrollbar-track
 
 ul, li
   margin: 0
@@ -141,7 +148,6 @@ button
   line-height: 16px
   width: 33px
   height: 15px
-  /*border-radius
   -webkit-border-radius: 18px
   -moz-border-radius: 18px
   border-radius: 20px
@@ -157,7 +163,6 @@ button
     text-indent: 40px
     height: 13px
     width: 13px
-    /*border-radius
     -webkit-border-radius: 100%
     -moz-border-radius: 100%
     border-radius: 100%
@@ -165,7 +170,6 @@ button
     left: 4px
     right: auto
     background: #B2B2B2
-    /*box-shadow
     -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px #dddddd
     -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px #dddddd
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px #dddddd
@@ -176,10 +180,10 @@ button
     transition: 0.32s
     z-index: 0
     top: 0
-    left: -300px
+    left: 0
     padding: 10px
     height: 100%
-    width: 300px
+    width: 0
     text-align: right
     color: #bfbfbf
     white-space: nowrap
@@ -188,7 +192,6 @@ button
   &:before
     left: calc(100% - 16px)
     background: $orange
-    /*box-shadow
     -webkit-box-shadow: 0 0 0 2px transparent, 0 3px 3px rgba(0, 0, 0, 0.3)
     -moz-box-shadow: 0 0 0 2px transparent, 0 3px 3px rgba(0, 0, 0, 0.3)
     box-shadow: 0 0 0 2px transparent, 0 3px 3px rgba(0, 0, 0, 0.3)
@@ -254,9 +257,6 @@ button
 .categories-filter
   display: block
 
-
-
-
 .bg-image
   height: 100%
   position: absolute
@@ -317,6 +317,7 @@ button
     position: relative
     display: flex
     justify-content: center
+    margin-top: 100px
     img
       width: 100%
     &__nav
@@ -390,19 +391,12 @@ button
     .google-map
       width: 100%
       height: 100%
-      .gm-style
-        div[style='position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url("https://maps.gstatic.com/mapfiles/openhand_8_8.cur"), default; touch-action: pan-x pan-y;'] + iframe
-          width: 100% !important
-          height: 100% !important
-          position: absolute !important
-          background: rgba(0,0,0,.4) !important
-          z-index: 100 !important
       .gmnoprint
         z-index: 1000 !important
       button
         z-index: 1000 !important
   .tabs
-    z-index: 15px
+    z-index: 15
     position: relative
     width: 457px
     border-radius: 4px
@@ -488,6 +482,14 @@ button
     color: $white
     height: 417px !important
     overflow-y: scroll
+    &::-webkit-scrollbar
+      width: 0.4em
+      height: 0.5em
+    &::-webkit-scrollbar-thumb
+      background: $orange
+      border-radius: 40px
+    &::-webkit-scrollbar-track
+      background: transparent
     .tab
       display: none
       &.active
@@ -529,18 +531,27 @@ button
         display: flex
         justify-content: center
         align-items: center
-        img
-          width: 100%
-          height: 100%
-          object-fit: cover
-          transition: 0.32s
-        img.slick-loading
-          background-color: transparent
-          border: 1px solid $orange
-          width: 50px !important
-          height: 50px
-          border-radius: 100%
-          animation: loaderRotate 2s linear infinite
+        .nav-photo
+          position: relative
+          &__id
+            position: absolute
+            right: 5px
+            z-index: 10000
+            color: #fa8319
+            padding: 5px
+            background: rgba(0,0,0,.1)
+          &__img
+            width: 100%
+            height: 100%
+            object-fit: cover
+            transition: 0.32s
+            &.slick-loading
+              background-color: transparent
+              border: 1px solid $orange
+              width: 50px !important
+              height: 50px
+              border-radius: 100%
+              animation: loaderRotate 2s linear infinite
     .slick-current
       border: 3px solid $orange
       img
@@ -614,8 +625,8 @@ button
         &:hover
           transform: rotate(20deg) scale(1.1)
   &__title
-    margin-bottom: 15px
-    font-size: 31px
+    margin-bottom: 18px
+    font-size: 27px
 
 .dark-bg
   background: rgba(0,0,0,.2)
@@ -666,7 +677,6 @@ button
   &-slide
     overflow: hidden
   .btn.open_categories
-    margin: 0 auto
     border-radius: 20px
     border: 2px solid $white
     background: rgba(255,255,255,.1)
@@ -707,7 +717,6 @@ button
     justify-content: center
     padding: 0 30px
     align-items: center
-    max-height: 270px
     min-width: 100%
     &__item
       padding: 20px
@@ -772,3 +781,13 @@ button
 @keyframes loaderRotate
   to
     transform: rotate(360deg)
+
+.select-target.select-theme-dark
+  b
+    &:after
+      bottom: 6px
+.select-target.select-theme-dark.select-open
+  b
+    &:after
+      bottom: 6px
+

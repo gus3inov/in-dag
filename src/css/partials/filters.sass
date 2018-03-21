@@ -46,11 +46,13 @@
             input
               margin-right: 10px
   .filter-footer
+    display: flex
+    align-items: center
     button
       margin-right: 20px
       span
         font-size: 30px
-    button[type="reset"]
+    button[type="reset"], button[name="del_filter"]
       border-bottom: 1px solid $white
       padding: 2px 0
       padding-left: 20px
@@ -62,9 +64,23 @@
         position: absolute
         top: -9px
         left: 0
+    &__reset
+      display: flex
+      align-items: center
+      margin-left: 8px
+      span
+        font-size: 23px
+        position: relative
+        left: 15px
+        top: -3px
+      .btn_reset
+        background: transparent
+        border: none
+        border-bottom: 1px solid #fff
+        padding-left: 20px
 
   .tabs
-    z-index: 15px
+    z-index: 15
     position: relative
     border-radius: 4px
     overflow: hidden
@@ -298,7 +314,7 @@
       right: 6px
       bottom: 1px
     &:after
-      bottom: 10px
+      bottom: 6px
       border-top-color: inherit
       transform: rotate(-50deg)
   &.select-open
@@ -313,7 +329,7 @@
         right: 6px
         bottom: 1px
       &:after
-        bottom: 10px
+        bottom: 6px
         border-top-color: inherit
         transform: rotate(50deg)
   &.option_picked
