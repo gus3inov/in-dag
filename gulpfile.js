@@ -1,8 +1,8 @@
-let gulp        = require('gulp'),
+const gulp      = require('gulp'),
     prefixer    = require('gulp-autoprefixer'),
     uglify      = require('gulp-uglify'),
     sass        = require('gulp-sass'),
-    babel		= require('gulp-babel'),
+    babel		= require('rollup-plugin-babel'),
     imagemin    = require('gulp-imagemin'),
     pngquant    = require('imagemin-pngquant'),
     cleanCSS    = require('gulp-clean-css'),
@@ -17,7 +17,7 @@ let gulp        = require('gulp'),
     rollup      = require('gulp-better-rollup'),
     reload      = browserSync.reload;
 
-let path = {
+const path = {
     build: {
         html: 'build/',
         js: 'build/js/',
@@ -28,7 +28,7 @@ let path = {
     },
     src: {
         html: 'src/*.html',
-        js: 'src/js/main.js',
+        js: 'src/js/app.js',
         style: 'src/css/main.sass',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*',
@@ -45,7 +45,7 @@ let path = {
     clean: './build'
 };
 
-let config = {
+const config = {
     server: {
         baseDir: "./build"
     },
@@ -72,16 +72,17 @@ gulp.task('html:build', () => {
 gulp.task('js:build', () => {
     gulp.src(path.src.js)
     .pipe(plumber())
-        .pipe(rigger())
-        .pipe(sourcemaps.init())
-        .pipe(babel({
-            presets: ['env']
-        }))
-        .pipe(uglify())
-        .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.build.js))
-        .pipe(reload({ stream: true }));
+    .pipe(sourcemaps.init())
+    .pipe(rollup({
+        plugins: [
+            babel({
+                runtimeHelpers: true
+            })
+        ]
+    }, 'iife'))
+    .pipe(sourcemaps.write(''))
+    .pipe(gulp.dest(path.build.js))
+    .pipe(reload({ stream: true }));
 });
 
 gulp.task('style:build', () => {
