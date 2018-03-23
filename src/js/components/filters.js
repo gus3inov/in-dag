@@ -7,7 +7,6 @@ $(document).ready(function(){
 
     openFilterBtn.on('click', function () {
         openFilterBtn.toggleClass('active')
-        console.log(categoriesFilterWrapp)
         if(categoriesFilterWrapp.hasClass('visible')){
             categoriesFilterWrapp.toggleClass('visually_visible')
 
