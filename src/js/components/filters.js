@@ -1,19 +1,19 @@
-$(document).ready(function(){
+const initFilters = () => {
     const filters = document.querySelectorAll('.filter-select')
-    let dataFilter = []
-    let openFilterBtn = $('.open-filter'),
+    let dataFilter = [],
+        openFilterBtn = $('.open-filter'),
         categoriesFilterWrapp = $('.categories-filter-wrapper'),
-        instanceFilter = []
+        instanceFilter = [];
 
     openFilterBtn.on('click', function () {
         openFilterBtn.toggleClass('active')
-        if(categoriesFilterWrapp.hasClass('visible')){
+        if (categoriesFilterWrapp.hasClass('visible')) {
             categoriesFilterWrapp.toggleClass('visually_visible')
 
             setTimeout(function () {
                 categoriesFilterWrapp.toggleClass('visible')
             }, 200)
-        }else {
+        } else {
             categoriesFilterWrapp.toggleClass('visible')
 
             setTimeout(function () {
@@ -33,19 +33,19 @@ $(document).ready(function(){
             dataFilter.push(val.value)
             currentTarget.classList.add('option_picked')
 
-           let selectOptions = filter.children
+            let selectOptions = filter.children
 
-            for(let i = 0; i < selectOptions.length; i++){
+            for (let i = 0; i < selectOptions.length; i++) {
                 let attrDepend = selectOptions[i].getAttribute('data-depend'),
                     attrValue = selectOptions[i].value
 
-                if(attrDepend !== null){
-                    if(val.value === attrValue){
+                if (attrDepend !== null) {
+                    if (val.value === attrValue) {
                         let filterOption = $(`.filter-select option[data-depend-for="${attrDepend}"]`).attr('value')
                         allOptions.filter(function (index) {
-                             if($(this).attr('data-value') === filterOption){
-                                 $(this).addClass('select-option-selected')
-                             }
+                            if ($(this).attr('data-value') === filterOption) {
+                                $(this).addClass('select-option-selected')
+                            }
                         })
                     }
                 }
@@ -55,7 +55,7 @@ $(document).ready(function(){
         instanceFilter.push(Select)
     })
 
-    $('.select-target.option_picked').on('click', function(){
+    $('.select-target.option_picked').on('click', function () {
         console.log('click')
         $(this).parent('a').removeClass('option_picked')
     })
@@ -75,13 +75,13 @@ $(document).ready(function(){
         })
     })
 
-    $('.filter-footer button[type="reset"]').on('click', function() {
+    $('.filter-footer button[type="reset"]').on('click', function () {
         instanceFilter.forEach(function (instance) {
             console.log(instance.prototype.resetSelection)
         })
     })
 
-    $('.filter-footer button[type="submit"]').on('click', function(){
+    $('.filter-footer button[type="submit"]').on('click', function () {
         let activeType = $('.categories-filter .tabs-header .active a').attr('data-type')
 
         let promise = new Promise(function (resolve) {
@@ -98,5 +98,6 @@ $(document).ready(function(){
 
         return promise
     })
+}
 
-})
+export default initFilters;

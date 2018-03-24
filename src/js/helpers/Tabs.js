@@ -1,5 +1,3 @@
-$(document).ready(function () {
-
 class Tabs {
     constructor({ baseDom, baseDomNav = baseDom, baseDomDisplay = baseDom}){
         this._wrapperNav = baseDomNav
@@ -94,6 +92,4 @@ class Tabs {
     }
 }
 
-window.Tabs = Tabs;
-
-})
+export default Tabs;

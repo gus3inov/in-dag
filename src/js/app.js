@@ -4,6 +4,8 @@ import HScrollController from './controllers/HScrollController';
 import { fadeIn, fadeOut } from './helpers/BaseDom';
 import initBgSlider from './components/bg-slider';
 import Modal from './helpers/Modal';
+import initGallery from './components/gallery';
+import initFilters from './components/filters';
 
 /**
  * @feature About us modal
@@ -92,6 +94,7 @@ if (sidebarBtn !== null && sidebarMenu !== null) {
     });
 }
 
+
 /**
  * @feature Init bg-slider -> bg-slider.html
  */
@@ -102,4 +105,13 @@ if(bg_slider.length !== 0){
     initBgSlider(bg_slider);
 }
 
+/**
+ * @feature Init gallery -> gallery.html
+ */
+    initGallery();
 
+
+/**
+ * @feature Init filters -> index.html
+ */
+initFilters();
