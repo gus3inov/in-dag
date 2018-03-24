@@ -2,13 +2,19 @@ export default class HScrollModel{
     constructor({
         slideWrapper,
         itemsScroll,
+        toggleButton,
         scrollBody = document.documentElement
                 })
     {
         this._wrapper = typeof slideWrapper !== 'string' ? slideWrapper : document.querySelector(slideWrapper);
         this._items = document.querySelectorAll(itemsScroll) || this._wrapper.children;
+        this._btn = typeof toggleButton !== 'string' ? toggleButton : document.querySelector(toggleButton);
         this._body = typeof scrollBody !== 'string' ? scrollBody : document.querySelector(scrollBody);
         this._width = 0;
+    }
+
+    getBtn(){
+        return this._btn;
     }
 
     getItems(){
@@ -27,7 +33,7 @@ export default class HScrollModel{
         else {
             let widthChildren = children.offsetWidth
 
-            this._width += widthChildren / 2
+            this._width += widthChildren / 4
         }
 
         return this._width;

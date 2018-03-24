@@ -18,7 +18,27 @@ const modalAbout = new Modal({
     openBtn: openModalAboutBtn,
     closeBtn: closeModalAboutBtn,
     duration: 200
-})
+});
+
+/**
+ * @feature Categories toggle -> categories.html
+ */
+
+const showCategory = document.querySelector('.btn.open_categories'),
+    categoryItems = document.querySelectorAll('.categories-list .categories-list__item');
+
+if(showCategory !== null && categoryItems !== null){
+    showCategory.addEventListener('click', function () {
+        this.classList.toggle('back');
+
+        for(let i = 0; i < categoryItems.length; i++){
+            categoryItems[i].classList.toggle('visible');
+            setTimeout(function () {
+                categoryItems[i].classList.toggle('visually_visible');
+            }, 20 * i)
+        }
+    });
+}
 
 /**
  * @feature Horizontal scroll -> categories.html
@@ -32,32 +52,24 @@ if (listScroll_1 !== null && listScroll_2 !== null) {
     const scrollModel = new HScrollModel({
             slideWrapper: listScroll_1,
             itemsScroll: '.categories-scroll_1 .categories-list__item',
-            scrollBody: '.categories'
+            scrollBody: '.categories',
+            toggleButton: showCategory
         }),
         scrollView = new HScrollView(scrollModel),
         scrollController = new HScrollController(scrollView, scrollModel);
 
     scrollController.scrollItems();
-}
 
-/**
- * @feature Categories toggle -> categories.html
- */
+    const scrollModel2 = new HScrollModel({
+            slideWrapper: listScroll_2,
+            itemsScroll: '.categories-scroll_2 .categories-list__item',
+            scrollBody: '.categories',
+            toggleButton: showCategory
+        }),
+        scrollView2 = new HScrollView(scrollModel2),
+        scrollController2 = new HScrollController(scrollView2, scrollModel2);
 
-const showCategory = document.querySelector('.btn.open_categories'),
-    categoryItems = document.querySelectorAll('.categories-list .categories-list__item');
-
-if(showCategory !== null && categoryItems !== null){
-    showCategory.addEventListener('click', function () {
-        this.classList.toggle('.back');
-
-        for(let i = 0; i < categoryItems.length; i++){
-            categoryItems[i].classList.toggle('visible');
-            setTimeout(function () {
-                categoryItems[i].classList.toggle('visually_visible');
-            }, 20 * i)
-        }
-    });
+    scrollController2.scrollItems();
 }
 
 /**
