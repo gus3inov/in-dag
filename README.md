@@ -2,8 +2,7 @@
 
 ```sh
 $ npm install 
-$ bower install
-$ gulp
+$ npm start - запустит build и вотчер
 ```
 
 **Free Software, Hell Yeah!**
